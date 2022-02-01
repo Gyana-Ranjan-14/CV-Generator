@@ -1,0 +1,151 @@
+#cv-template {
+    display: none;
+    background: #ffffff;
+    margin-top: 12px;
+    height: auto;
+    border-radius: 12px;
+    margin-bottom: 50px;
+}
+
+body {
+    background: rgba(255, 255, 255, 0.692);
+}
+
+#cv-form {
+    /* display: none; */
+}
+
+
+/* profile css of resume */
+
+.myimg {
+    width: 150px;
+    height: 150px;
+    object-fit: contain;
+    overflow: "hidden";
+    /* backgroundSize: 'contain'; */
+    border-radius: 50%;
+    border: 4px solid rgb(207, 198, 198);
+    background-size: cover;
+    background-position: center center;
+}
+
+
+/* leftside css */
+
+.background {
+    background: #353f58;
+    color: aliceblue;
+    height: auto;
+    width: 350px;
+    border-radius: 12px;
+}
+
+
+/* rightside css */
+
+.card {
+    border: none;
+    margin-left: 60px;
+    font-size: 14px;
+}
+
+
+/* inside card heading */
+
+.back {
+    background: none;
+    border: none;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 100;
+    font-size: 1px;
+}
+
+
+/* link css */
+
+.links {
+    margin-top: 42px;
+}
+
+.links p i {
+    margin-right: 10px;
+}
+
+.links p a {
+    text-decoration: none;
+    color: antiquewhite;
+}
+
+
+/* about yourself */
+
+#objectiveT {
+    padding-left: 25px;
+    padding-right: 100px;
+    text-align: left;
+}
+
+.card-Body {
+    padding-left: 25px;
+}
+
+.btn {
+    background: #353f58;
+    color: aliceblue;
+    margin-left: 12rem;
+    margin-bottom: 1rem;
+}
+
+
+/* resume background */
+
+.resume {
+    margin-left: 150px;
+    margin-right: 100px;
+    box-shadow: 11px 14px 18px -8px rgba(0, 0, 0, 0.6);
+    -webkit-box-shadow: 11px 14px 18px -8px rgba(0, 0, 0, 0.6);
+    -moz-box-shadow: 11px 14px 18px -8px rgba(0, 0, 0, 0.6);
+}
+
+
+/* name */
+
+#nameT1 {
+    margin-top: 12px;
+    font-size: 25px;
+    font-family: "Times New Roman", Times, serif;
+}
+
+
+/* Contact */
+
+.contact {
+    font-weight: 200;
+    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+    margin-top: 5rem;
+    font-size: 18px;
+    text-align: left;
+}
+
+.address {
+    padding-top: 20px;
+    font-size: 12px;
+}
+
+
+/* form css */
+
+.head {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-decoration: underline;
+}
+
+.row h3 {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin-top: 22px;
+}
+
+.form-control {
+    margin-right: 4.5rem;
+}

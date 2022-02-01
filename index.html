@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Favicon linking -->
+    <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+    <!-- bootstrap css file -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <!-- font awesome css -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+    <!-- css file link -->
+    <link rel="stylesheet" href="style.css">
+    <!-- pdf cdn -->
+    <script src="https://raw.githack.com/eKoopmans/html2pdf/master/dist/html2pdf.bundle.js"></script>
+    <title>Resume Generator</title>
+</head>
+
+<body>
+
+    <!-- here starts the form of the resume -->
+    <div class="container" id="cv-form">
+        <h1 class="text-center my-2.5 head">Create Your Resume</h1>
+        <p class="text-center my-2.5">( In an Easy Way )</p>
+
+        <div class="row">
+            <div class="col-md-6">
+                <!-- first col -->
+                <h3>Personal Information</h3>
+
+                <div class="form-group">
+                    <label for="name">Your Name</label>
+                    <input id="namefield" type="text" placeholder="Enter Your Name" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="name">Your Position</label>
+                    <input id="positionfield" type="text" placeholder="Enter Your position with in ( )" class="form-control">
+                </div>
+                <div class="form-group mt-3">
+                    <label for="name">Contact Number</label>
+                    <input id="contactfield" type="text" placeholder="Enter Your Number" class="form-control">
+                </div>
+                <div class="form-group mt-2">
+                    <label for="name">Enter Your Email</label>
+                    <input id="emailfield" type="email" placeholder="Enter Your E-mail" class="form-control">
+                </div>
+                <div class="form-group mt-2">
+                    <label for="name">Enter Your Adress</label>
+                    <textarea id="Adressfield" type="text" placeholder="Enter Your Adress" class="form-control" rows=" 10 "></textarea>
+                </div>
+
+
+                <!-- for image -->
+                <div class="form-group mt-3">
+                    <label for="">Upload Your Image</label>
+                    <input id="imgfield" type="file" class="form-control">
+                </div>
+
+                <!-- for linking social media -->
+                <p class="text-secondary my-3">Social Links</p>
+                <div class="form-group mt-3">
+                    <label for="twitfield">Twitter</label>
+                    <input id="twitfield" type="text" placeholder="Enter Your Twitter Link" class="form-control">
+                </div>
+                <div class="form-group mt-3">
+                    <label for="linkedfield">LinkedIn</label>
+                    <input id="linkedfield" type="text" placeholder="Enter Your LinkedIn Link" class="form-control">
+                </div>
+                <div class="form-group mt-3">
+                    <label for="gitfield">GitHub</label>
+                    <input id="gitfield" type="text" placeholder="Enter Your GitHub Link" class="form-control">
+                </div>
+            </div>
+            <div class="col-md-6 ">
+                <!-- second col -->
+                <h3>Professional Information</h3>
+                <div class="form-group mt-2">
+                    <label for="">Describe Yourself</label>
+                    <textarea id="objectivefield" placeholder="Introduce Yourself in 60 Words" class="form-control my-2" rows="5"></textarea>
+                </div>
+
+                <div class="form-group mt-2" id="we">
+                    <label for=""> Educational Details (With Formatting )</label>
+                    <textarea placeholder=" Enter here " class="form-control weField my-2" rows="3"></textarea>
+                    <div class="container text-center mt-3" id="weAddButton">
+                        <button onclick="addNewWefield()" class="btn btn-primary btn-sm">Add</button>
+                    </div>
+                </div>
+
+                <div class="form-group mt-2" id="aw">
+                    <label for=""> Awards </label>
+                    <textarea placeholder=" Enter here " class="form-control awards my-2" rows="3"></textarea>
+                    <div class="container text-center mt-3" id="awardadd">
+                        <button onclick="addawardfield()" class="btn btn-primary btn-sm">Add</button>
+                    </div>
+                </div>
+
+                <div class="form-group mt-2" id="cw">
+                    <label for="">Certificates & Courses</label>
+                    <textarea placeholder=" Enter here " class="form-control certi my-2" rows="3"></textarea>
+                    <div class="container text-center mt-3" id="certify">
+                        <button onclick="addcertificatefield()" class="btn btn-primary btn-sm">Add</button>
+                    </div>
+                </div>
+                <!-- new text area comes here dynamically by the help of js -->
+
+                <div class="form-group mt-2" id="Aq">
+                    <label for="">Your Skills</label>
+                    <input type="text" placeholder="Enter here" class="form-control eqField">
+                    <!-- new text area comes here dynamically by the help of js -->
+                    <div class="container text-center mt-3" id="aqAddButton">
+                        <button onclick="AqNewField()" class="btn btn-primary btn-sm">Add</button>
+                    </div>
+                </div>
+            </div>
+            <div class="container text-center mt-3 mb-3">
+                <button onclick="generatecv()" class="btn btn-primary btn-lg">Generate Your Cv</button>
+            </div>
+        </div>
+    </div>
+    <!-- here ends the form of the resume -->
+
+
+    <!-- resume template -->
+
+    <div class="container resume" id="cv-template">
+        <div class="row">
+            <div class="col-md-4 text-center py-5 background">
+                <!-- This div for left side of resume -->
+                <img id="imgtemplate" src="profile.png" class="img-fluid myimg img-responsive">
+
+                <div class="container address">
+                    <p id="nameT1">Gyana Ranjan Barik</p>
+                    <p id="positionT">( Front-End Developer )</p>
+                    <h2 class="contact">Contact</h2>
+                    <hr>
+                    <p id="contactT1"><span>Mob -</span> 8260564767 , 7873596685</p>
+                    <p id="addressT"><span>Adress -</span> Odisha,Jajpur,Sukinda,Damodarpur</p>
+                    <p id="emailT"><span>Mail - </span> gyanabarik794@gmail.com</p>
+                    <hr>
+                </div>
+                <div class="links">
+                    <p><i class="fab fa-twitter"></i><a id="TwitT" href="#">Twitter</a></p>
+                    <p><i class="fab fa-linkedin"></i><a id="linkT" href="#">LinkedIn</a></p>
+                    <p><i class="fab fa-github"></i><a id="GitT" href="#">GitHub</a></p>
+                </div>
+            </div>
+            <div class="col-md-7 rightside">
+                <!-- objective cards -->
+                <div class="card mt-4">
+                    <div class="card-header back">
+                        <h3>About Me</h3>
+                    </div>
+                    <div class="card-Body px-3">
+                        <p id="objectiveT">Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia ipsam blanditiis repellat est accusantium accusamus ducimus deserunt doloremque quia esse at, minus numquam tempora debitis necessitatibus praesentium delectus.
+                            Distinctio, cum!</p>
+                    </div>
+                </div>
+                <!-- Education -->
+                <div class="card mt-4">
+                    <div class="card-header back">
+                        <h3>Education</h3>
+                    </div>
+                    <div class="card-Body">
+                        <ul id="weT">
+                            <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic, quo..</li>
+                            <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic, quo..</li>
+                            <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic, quo..</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Skills -->
+                <div class="card mt-4">
+                    <div class="card-header back">
+                        <h3>Skills</h3>
+                    </div>
+                    <div class="card-Body">
+                        <ul id="aqT">
+                            <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic, quo..</li>
+                            <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic, quo..</li>
+                            <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic, quo..</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Awardes -->
+                <div class="card mt-4">
+                    <div class="card-header back">
+                        <h3>Awards</h3>
+                    </div>
+                    <div class="card-Body">
+                        <ul id="awT">
+                            <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic, quo..</li>
+                            <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic, quo..</li>
+                            <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic, quo..</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Certificate & Courses -->
+                <div class="card mt-4">
+                    <div class="card-header back">
+                        <h3>Certificates & Courses</h3>
+                    </div>
+                    <div class="card-Body">
+                        <ul id="cwT">
+                            <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic, quo..</li>
+                            <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic, quo..</li>
+                            <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic, quo..</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="container mt-3 text-center">
+        <button onclick="printcv()" class="btn">
+            Print
+        </button>
+    </div>
+    <!-- bootstrap js file -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js " integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p " crossorigin="anonymous "></script>
+    <!-- linking js file -->
+    <script src="script.js "></script>
+</body>
+
+</html>
