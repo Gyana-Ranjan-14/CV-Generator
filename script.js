@@ -250,7 +250,8 @@ function generatecv() {
 function printcv() {
     const ele = document.getElementById("cv-template");
 
-    html2pdf()
-        .from(ele)
-        .save();
+    window.print();
+    // html2pdf()
+    //     .from(ele)
+    //     .save();
 }

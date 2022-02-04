@@ -1,5 +1,5 @@
 #cv-template {
-    display: none;
+    /* display: none; */
     background: #ffffff;
     margin-top: 12px;
     height: auto;
@@ -12,7 +12,7 @@ body {
 }
 
 #cv-form {
-    /* display: none; */
+    display: none;
 }
 
 
@@ -95,6 +95,18 @@ body {
     color: aliceblue;
     margin-left: 12rem;
     margin-bottom: 1rem;
+}
+
+
+/* print button  */
+
+@media print {
+    body * {
+        visibility: hidden;
+    }
+    .resume * {
+        visibility: visible;
+    }
 }
 
 
