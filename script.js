@@ -1,5 +1,67 @@
 // when click onn add btn create new field like work expierence field
 // Adding Educational Details
+
+// validation of form 
+
+// validation of name
+const name = document.getElementById('namefield');
+namefield.addEventListener('blur', () => {
+    console.log("name is blurred");
+    // Validate name here
+    let regex = /^[a-zA-Z]([0-9a-zA-Z]){2,10}$/;
+    let str = namefield.value;
+    console.log(regex, str);
+    if (regex.test(str)) {
+        console.log('Your name is valid');
+        namefield.classList.remove('is-invalid');
+        validUser = true;
+    } else {
+        console.log('Your name is not valid');
+        namefield.classList.add('is-invalid');
+        validUser = false;
+
+    }
+})
+
+// validation of email
+const email = document.getElementById('emailfield');
+emailfield.addEventListener('blur', () => {
+    console.log("email is blurred");
+    // Validate email here
+    let regex = /^([_\-\.0-9a-zA-Z]+)@([_\-\.0-9a-zA-Z]+)\.([a-zA-Z]){2,7}$/;
+    let str = emailfield.value;
+    console.log(regex, str);
+    if (regex.test(str)) {
+        console.log('Your email is valid');
+        emailfield.classList.remove('is-invalid');
+        validEmail = true;
+    } else {
+        console.log('Your email is not valid');
+        emailfield.classList.add('is-invalid');
+        validEmail = false;
+    }
+})
+
+// validation of numer
+const phone = document.getElementById('contactfield');
+contactfield.addEventListener('blur', () => {
+    console.log("phone is blurred");
+    // Validate phone here
+    let regex = /^([0-9]){10}$/;
+    let str = phone.value;
+    console.log(regex, str);
+    if (regex.test(str)) {
+        console.log('Your phone is valid');
+        contactfield.classList.remove('is-invalid');
+        validPhone = true;
+    } else {
+        console.log('Your phone is not valid');
+        contactfield.classList.add('is-invalid');
+        validPhone = false;
+
+    }
+})
+
 function addNewWefield() {
     // in this function here we create a textarea
     let newNode = document.createElement("textarea");
